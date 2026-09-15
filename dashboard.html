@@ -1,0 +1,191 @@
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WayWise - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+
+    <!-- Top Navigation -->
+    <nav>
+        <div class="logo">WAYWISE</div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="profile.html">Profile</a>
+            <a href="settings.html">Settings</a>
+        </div>
+
+        <a href="profile.html" class="profile-button">
+            👤
+        </a>
+    </nav>
+
+
+    <!-- Dashboard -->
+    <main class="dashboard">
+
+        <!-- Left Panel -->
+        <aside class="side-panel">
+
+            <h2>Where to?</h2>
+
+          <input
+    type="text"
+    id="destinationSearch"
+    placeholder="🔍 Search destination"
+>
+
+            <div class="current-location">
+                📍 Current Location
+                <small>Your current position</small>
+            </div>
+
+
+            <h3>Recent Places</h3>
+
+            <div class="place">
+                🏠 Home
+            </div>
+
+            <div class="place">
+                💼 Work
+            </div>
+
+            <div class="place">
+                📍 City Centre
+            </div>
+
+
+            <h3>Route Options</h3>
+
+            <!-- Route 1 -->
+            <div class="route-card selected">
+
+                <div>
+                    <strong>Route 1</strong>
+                    <p>Fastest Route</p>
+                </div>
+
+                <div>
+                    <strong>25 min</strong>
+                    <p>12.4 km</p>
+                </div>
+
+            </div>
+
+
+            <!-- Route 2 -->
+            <div class="route-card">
+
+                <div>
+                    <strong>Route 2</strong>
+                    <p>Less Traffic</p>
+                </div>
+
+                <div>
+                    <strong>28 min</strong>
+                    <p>14.1 km</p>
+                </div>
+
+            </div>
+
+
+            <!-- Route 3 -->
+            <div class="route-card">
+
+                <div>
+                    <strong>Route 3</strong>
+                    <p>Better Roads</p>
+                </div>
+
+                <div>
+                    <strong>32 min</strong>
+                    <p>16.2 km</p>
+                </div>
+
+            </div>
+
+        </aside>
+        
+        <!-- Map -->
+<section class="dashboard-map">
+    <div id="map"></div>
+
+
+            <!-- Navigation Card -->
+            <div class="navigation-card">
+
+                <p>NEXT TURN</p>
+
+                <h2>Turn right onto Main Road</h2>
+
+                <p>500 m</p>
+
+            </div>
+
+
+            <!-- Trip Information -->
+            <div class="trip-card">
+
+                <div>
+                    <strong>25 min</strong>
+                    <small>ETA 2:45 PM</small>
+                </div>
+
+                <div>
+                    <strong>12.4 km</strong>
+                    <small>Distance</small>
+                </div>
+
+                <div>
+                    <strong>Moderate</strong>
+                    <small>Traffic</small>
+                </div>
+
+            </div>
+
+
+            <!-- Alternative Route Alert -->
+            <div class="alternative">
+
+                <strong>Alternative route available</strong>
+
+                <p>
+                    A faster route has been found.
+                    Your current route will stay unchanged.
+                </p>
+
+                <button>View Route</button>
+                <button>Stay on Current Route</button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav">
+
+        <a href="index.html">⌂<span>Home</span></a>
+
+        <a href="dashboard.html">🗺️<span>Map</span></a>
+
+        <a href="profile.html">👤<span>Profile</span></a>
+
+        <a href="settings.html">⚙️<span>Settings</span></a>
+
+    </div>
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
+```
