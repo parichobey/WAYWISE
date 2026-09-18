@@ -100,10 +100,11 @@ if (feedbackButton) {
         }
     });
 }
+let map;
 let mapElement = document.getElementById("map");
 
 if (mapElement && typeof L !== "undefined") {
-    let map = L.map("map").setView([28.6139, 77.2090], 13);
+    map = L.map("map").setView([28.6139, 77.2090], 13);
 
     L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         attribution: "&copy; OpenStreetMap contributors"
@@ -113,4 +114,43 @@ if (mapElement && typeof L !== "undefined") {
         .addTo(map)
         .bindPopup("Current Location")
         .openPopup();
+}
+let searchButton = document.getElementById("searchButton");
+let destinationSearch = document.getElementById("destinationSearch");
+
+if (searchButton && destinationSearch) {
+    searchButton.addEventListener("click", function() {
+
+        let destination = destinationSearch.value.trim();
+
+        if (destination === "") {
+            alert("Please enter a destination.");
+            return;
+        }
+
+        fetch("https://nominatim.openstreetmap.org/search?format=json&q=" + encodeURIComponent(destination))
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+
+                if (data.length === 0) {
+                    alert("Destination not found.");
+                    return;
+                }
+
+                let latitude = parseFloat(data[0].lat);
+                let longitude = parseFloat(data[0].lon);
+
+                map.setView([latitude, longitude], 15);
+
+                L.marker([latitude, longitude])
+                    .addTo(map)
+                    .bindPopup(destination)
+                    .openPopup();
+            })
+            .catch(function() {
+                alert("Something went wrong. Please try again.");
+            });
+    });
 }
